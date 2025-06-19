@@ -1,6 +1,6 @@
-import { initializeApp, getApps, getApp, FirebaseApp } from 'firebase/app';
-import { getAuth, Auth } from 'firebase/auth';
-// import { getFirestore, Firestore } from 'firebase/firestore'; // Uncomment if using Firestore
+import { initializeApp, getApps, getApp, type FirebaseApp } from 'firebase/app';
+import { getAuth, type Auth } from 'firebase/auth';
+// import { getFirestore, type Firestore } from 'firebase/firestore'; // Uncomment if using Firestore
 
 const apiKey = process.env.NEXT_PUBLIC_FIREBASE_API_KEY;
 const authDomain = process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN;
@@ -8,20 +8,23 @@ const projectId = process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID;
 
 if (!apiKey) {
   throw new Error(
-    "Firebase API Key (NEXT_PUBLIC_FIREBASE_API_KEY) is missing. " +
-    "Please ensure it's set in your environment variables (e.g., .env.local file)."
+    "CRITICAL CONFIGURATION ERROR: The Firebase API Key (NEXT_PUBLIC_FIREBASE_API_KEY) is missing. " +
+    "This is an essential environment variable that MUST be set in your Firebase Studio project settings. " +
+    "The application cannot initialize Firebase and will not run without it."
   );
 }
 if (!authDomain) {
   throw new Error(
-    "Firebase Auth Domain (NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN) is missing. " +
-    "Please ensure it's set in your environment variables (e.g., .env.local file)."
+    "CRITICAL CONFIGURATION ERROR: The Firebase Auth Domain (NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN) is missing. " +
+    "This is an essential environment variable that MUST be set in your Firebase Studio project settings. " +
+    "The application cannot initialize Firebase and will not run without it."
   );
 }
 if (!projectId) {
   throw new Error(
-    "Firebase Project ID (NEXT_PUBLIC_FIREBASE_PROJECT_ID) is missing. " +
-    "Please ensure it's set in your environment variables (e.g., .env.local file)."
+    "CRITICAL CONFIGURATION ERROR: The Firebase Project ID (NEXT_PUBLIC_FIREBASE_PROJECT_ID) is missing. " +
+    "This is an essential environment variable that MUST be set in your Firebase Studio project settings. " +
+    "The application cannot initialize Firebase and will not run without it."
   );
 }
 
